@@ -8,7 +8,7 @@ const initialState = {
 
 const user = (state = initialState, action: AnyAction) => {
   switch (action.type) {
-    case 'setEmail': {
+    case 'SET_EMAIL': {
       return { ...state, email: action.payload };
     }
     default:

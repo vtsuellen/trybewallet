@@ -37,7 +37,7 @@ function Header() {
         <p data-testid="total-field">{ istotal }</p>
         <span data-testid="header-currency-field">BRL</span>
       </div>
-      <p data-testid="email-field">{email}</p>
+      <p data-testid="email-field">{ email }</p>
     </div>
   );
 }
