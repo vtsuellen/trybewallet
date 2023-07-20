@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { saveUser } from '../redux/actions';
 
 const isValidEmail = (email: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -27,7 +28,7 @@ function Login() {
 
   const handleLogin = () => {
     // Salvar o e-mail no estado global da aplicação
-    dispatch({ type: 'setEmail', payload: email });
+    dispatch(saveUser(email));
     // Mudar a rota para /carteira
     navigate('/carteira');
   };
