@@ -1,8 +1,15 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../types/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, Dispatch } from '../types/types';
+import { deleteExpenses } from '../redux/actions';
 
 function Table() {
+  const dispatch: Dispatch = useDispatch();
+
   const expenses = useSelector((state: RootState) => state.wallet.expenses);
+
+  const deleteExpense = (event: React.MouseEvent<HTMLButtonElement>, id: number) => {
+    dispatch(deleteExpenses(id));
+  };
 
   return (
     <table>
@@ -34,8 +41,19 @@ function Table() {
             </td>
             <td>Real</td>
             <td>
-              <button type="button">Editar</button>
-              <button type="button">Excluir</button>
+              <button
+                type="button"
+                data-testid="edit-btn"
+              >
+                <img src=".././imgs/editar.svg" alt="editar" />
+              </button>
+              <button
+                type="button"
+                data-testid="delete-btn"
+                onClick={ (e) => deleteExpense(e, expense.id) }
+              >
+                <img src=".././imgs/deletar.svg" alt="excluir" />
+              </button>
             </td>
           </tr>
         </tbody>))}

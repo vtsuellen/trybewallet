@@ -34,7 +34,7 @@ function Header() {
         <p>
           Total de Despesas:
         </p>
-        <p data-testid="total-field">{ istotal }</p>
+        <p data-testid="total-field">{ istotal.toFixed(2) }</p>
         <span data-testid="header-currency-field">BRL</span>
       </div>
       <p data-testid="email-field">{ email }</p>

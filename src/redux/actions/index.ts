@@ -29,3 +29,7 @@ export const Expenses = (info: ExpensesType) => {
     dispatch(registerExpenses({ ...info, exchangeRates: data }));
   };
 };
+
+export const deleteExpenses = (id: number) => ({
+  type: 'DELETE_EXPENSES', payload: id,
+});
